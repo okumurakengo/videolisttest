@@ -68,6 +68,7 @@ $app->map(["GET","POST"],'/video/add', function (Req $req, Res $res, $args) {
         //     throw new RuntimeException('未対応の画像形式です', 400);
         // }
 
+        if(!is_dir(__DIR__.'/upload')) mkdir(__DIR__.'/upload');
         $file = $_SERVER['REQUEST_TIME'].".".pathinfo($_FILES['upfile']['name'], PATHINFO_EXTENSION);
         if(!rename($_FILES['upfile']['tmp_name'], __DIR__."/upload/$file")){
             throw new RuntimeException('アップロードに失敗しました', 500);

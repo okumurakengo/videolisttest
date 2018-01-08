@@ -2,7 +2,7 @@
 class dbVideo extends DB {
     
     public function getVideoList(){
-        return $this->pdo->query("SELECT * FROM videotest WHERE del_flg=0 ORDER BY created DESC, id DESC")->fetchAll();
+        return $this->pdo->query("SELECT * FROM videotest WHERE del_flg=0 ORDER BY id DESC")->fetchAll();
     }
 
     public function getVideo($id){
