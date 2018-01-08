@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block title %}変更 - {{ parent() }}{% endblock %}
+{% block header1 %}「{{ getVideo.videoname }}」 変更{% endblock %}
+
+{% block content %}
+<form method="post" action="{{ getBaseUrl() }}/video/edit/{{ getVideo.id }}">
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" value="{{ getVideo.id }}" disabled>
+    </div>
+    <div class="form-group">
+        <label for="videoname">ファイル名</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="videoname" name="videoname" value="{{ getFileName(getVideo.videoname)[0] }}">
+            <div class="input-group-addon">{{ '.' ~ getFileName(getVideo.videoname)[1] }}</div>
+        </div>
+        <video controls width="320" height="240" src="{{ getBaseUrl() }}/upload/{{ getVideo.path }}">
+    </div>
+    <div class="form-group">
+        <label for="path">ファイルパス</label>
+        <input type="text" class="form-control" id="path" value="{{ getBaseUrl() ~ '/upload/' ~ getVideo.path }}" disabled>
+    </div>
+    <div class="form-group">
+        <label for="created">登録日</label>
+        <input type="text" class="form-control" id="created" value="{{ getVideocreated|date('Y年m月d日 H:i:s') }}" disabled>
+    </div>
+    <div class="form-group">
+        <label for="modified">変更日</label>
+        <input type="text" class="form-control" id="modified" value="{{ getVideocreated|date('Y年m月d日 H:i:s') }}" disabled>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

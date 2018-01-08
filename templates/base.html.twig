@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html {% block html %}{% endblock %}>
+<head>
+  {% block head %}
+  <meta character="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Videoリスト{% endblock %}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ getBaseUrl() }}/css/styles.css">
+  {% endblock %}
+</head>
+<body>
+<div class="container">
+    <header>
+        <a style="{% if not getPage() %}font-weight:bold;{% endif %}" href="{{ getBaseUrl() }}/video">Videoリスト</a>&nbsp;
+        <a style="{% if getPage() %}font-weight:bold;{% endif %}" href="{{ getBaseUrl() }}/video/add">Video追加</a>
+    </header>
+    <main>
+        <h1>{% block header1 %}Video{% endblock %}</h1><hr>
+        <div id="content">{% block content %}{% endblock %}</div><hr>
+    </main>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+{% block script %}{% endblock %}
+</body>
+</html>

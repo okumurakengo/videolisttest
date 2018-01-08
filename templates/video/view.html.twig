@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+{% block header1 %}{{ getVideo.videoname }}{% endblock %}
+
+{% block content %}
+<video autoplay controls width="320" height="240" src="{{ getBaseUrl() }}/upload/{{ getVideo.path }}">
+<p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+</video>
+{% endblock %}

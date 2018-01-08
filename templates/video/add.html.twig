@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block html %} xmlns="http://www.w3.org/1999/xhtml"{% endblock %}
+{% block title %}追加 - {{ parent() }}{% endblock %}
+{% block header1 %}{{ parent() }} 追加{% endblock %}
+
+{% block content %}
+<form enctype="multipart/form-data" method="post" action="{{ getBaseUrl() }}/video/add">
+    <div class="form-group">
+        <input type="file" id="exampleInputFile" name="upfile" required>
+        <p class="help-block">動画ファイルのみ選択して下さい(mp4,movファイルで動作確認済み)</p>
+        <p class="help-block">ファイルサイズが大きいとアップロードできません</p>
+        <p class="help-block">動画はフリー動画サイトのものを使用しています<a href="https://www.videezy.com/" target="_blank">https://www.videezy.com/</a></p>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+
